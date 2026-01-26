@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class HOmescreenView extends StatefulWidget {
@@ -5,13 +6,17 @@ class HOmescreenView extends StatefulWidget {
 
   @override
   State<HOmescreenView> createState() => _HOmescreenViewState();
+
 }
 
 class _HOmescreenViewState extends State<HOmescreenView> {
+  var increment =0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F5F0), // warm off-white / light sandalwood
+      backgroundColor: const Color(0xFFF9F5F0),
       appBar: AppBar(
         backgroundColor: Colors.deepOrange.shade700,
         elevation: 0,
@@ -39,7 +44,7 @@ class _HOmescreenViewState extends State<HOmescreenView> {
           children: [
             const SizedBox(height: 16),
 
-            // Mantra - more elegant font & spacing
+
             const Text(
               "জয় শ্রী কৃষ্ণ চৈতন্য প্রভু নিত্যানন্দ । শ্রী অদ্বৈত গদাধর শ্রীবাসাদি গৌর ভক্তবৃন্দ ।।",
               textAlign: TextAlign.center,
@@ -67,19 +72,19 @@ class _HOmescreenViewState extends State<HOmescreenView> {
 
             const SizedBox(height: 40),
 
-            // Stats – cleaner neumorphic cards, better proportion
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Active (left)
                 _buildStatCard(
-                  number: '01',
+                  number: '${increment.toString()}',
                   label: 'Active',
                   baseColor: Colors.deepOrange.shade50,
                   accentColor: Colors.deepOrange.shade700,
                 ),
                 const SizedBox(width: 40),
-                // Total (right)
+
                 _buildStatCard(
                   number: '108',
                   label: 'Total',
@@ -91,12 +96,15 @@ class _HOmescreenViewState extends State<HOmescreenView> {
 
             const Spacer(),
 
-            // Modern elevated button with gradient
+
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // Add your counter logic here later
+                  setState(() {
+                    increment ++;
+
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
@@ -148,14 +156,12 @@ class _HOmescreenViewState extends State<HOmescreenView> {
           width: 3.5,
         ),
         boxShadow: [
-          // outer soft shadow
           BoxShadow(
             color: Colors.black.withOpacity(0.08),
             blurRadius: 20,
             offset: const Offset(6, 10),
             spreadRadius: 2,
           ),
-          // inner highlight
           BoxShadow(
             color: Colors.white.withOpacity(0.9),
             blurRadius: 12,

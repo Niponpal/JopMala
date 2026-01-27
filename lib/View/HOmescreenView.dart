@@ -1,17 +1,16 @@
-
 import 'package:flutter/material.dart';
 
 class HOmescreenView extends StatefulWidget {
   const HOmescreenView({super.key});
 
   @override
-  State<HOmescreenView> createState() => _HOmescreenViewState();
 
+  State<HOmescreenView> createState() => _HOmescreenViewState();
 }
 
 class _HOmescreenViewState extends State<HOmescreenView> {
-  var increment =0;
-
+  int activeCount = 0;
+  int totalCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,6 @@ class _HOmescreenViewState extends State<HOmescreenView> {
           children: [
             const SizedBox(height: 16),
 
-
             const Text(
               "জয় শ্রী কৃষ্ণ চৈতন্য প্রভু নিত্যানন্দ । শ্রী অদ্বৈত গদাধর শ্রীবাসাদি গৌর ভক্তবৃন্দ ।।",
               textAlign: TextAlign.center,
@@ -72,13 +70,12 @@ class _HOmescreenViewState extends State<HOmescreenView> {
 
             const SizedBox(height: 40),
 
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Active (left)
+                // Active count (resets after 108)
                 _buildStatCard(
-                  number: '${increment.toString()}',
+                  number: activeCount.toString(),
                   label: 'Active',
                   baseColor: Colors.deepOrange.shade50,
                   accentColor: Colors.deepOrange.shade700,
@@ -86,7 +83,7 @@ class _HOmescreenViewState extends State<HOmescreenView> {
                 const SizedBox(width: 40),
 
                 _buildStatCard(
-                  number: '108',
+                  number: totalCount.toString(),
                   label: 'Total',
                   baseColor: Colors.amber.shade50,
                   accentColor: Colors.amber.shade800,
@@ -96,14 +93,17 @@ class _HOmescreenViewState extends State<HOmescreenView> {
 
             const Spacer(),
 
-
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    increment ++;
+                    activeCount++;
 
+                    if (activeCount == 109) {
+                      totalCount++;
+                      activeCount = 0;
+                    }
                   });
                 },
                 style: ElevatedButton.styleFrom(

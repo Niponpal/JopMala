@@ -175,8 +175,10 @@ class _HOmescreenViewState extends State<HOmescreenView> {
           children: [
             Text(
               number,
+
               style: TextStyle(
                 fontSize: 52,
+
                 fontWeight: FontWeight.w900,
                 color: accentColor,
                 height: 1.0,

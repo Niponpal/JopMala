@@ -178,7 +178,6 @@ class _HOmescreenViewState extends State<HOmescreenView> {
 
               style: TextStyle(
                 fontSize: 52,
-
                 fontWeight: FontWeight.w900,
                 color: accentColor,
                 height: 1.0,

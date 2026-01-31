@@ -4,7 +4,6 @@ class HOmescreenView extends StatefulWidget {
   const HOmescreenView({super.key});
 
   @override
-
   State<HOmescreenView> createState() => _HOmescreenViewState();
 }
 
@@ -151,10 +150,7 @@ class _HOmescreenViewState extends State<HOmescreenView> {
           end: Alignment.bottomRight,
           colors: [baseColor, baseColor.withOpacity(0.85)],
         ),
-        border: Border.all(
-          color: accentColor.withOpacity(0.5),
-          width: 3.5,
-        ),
+        border: Border.all(color: accentColor.withOpacity(0.5), width: 3.5),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.08),

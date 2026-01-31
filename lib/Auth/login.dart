@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:jopmales/View/HOmescreenView.dart';
 
 class LoginScrenView extends StatefulWidget {
   const LoginScrenView({super.key});
@@ -17,35 +20,35 @@ class _LoginScrenViewState extends State<LoginScrenView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 15),
-            const Center(
+             SizedBox(height: 15),
+             Center(
               child: Text(
                 "Login",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
             ),
-            const SizedBox(height: 40),
+             SizedBox(height: 40),
 
-            const Text(
-              "User Email",
+             Text(
+              "User Name",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
             ),
-            const SizedBox(height: 6),
+             SizedBox(height: 6),
             TextField(
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.none,
               decoration: const InputDecoration(
-                hintText: 'Enter your email',
-                prefixIcon: Icon(Icons.email_outlined),
+                hintText: 'Enter your Name',
+                prefixIcon: Icon(Icons.person),
               ),
             ),
 
-            const SizedBox(height: 50),
+             SizedBox(height: 50),
 
-            const Text(
+             Text(
               "Password",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
             ),
-            const SizedBox(height: 6),
+             SizedBox(height: 6),
             TextField(
               obscureText: true,
               decoration: const InputDecoration(
@@ -53,6 +56,44 @@ class _LoginScrenViewState extends State<LoginScrenView> {
                 prefixIcon: Icon(Icons.lock_outline),
               ),
             ),
+
+            SizedBox(height: 60),
+            GestureDetector(
+              onTap: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HOmescreenView(),));
+              },
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.orangeAccent,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 30),
+            Center(
+              child: Text(
+                "Or",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700,color: Colors.grey),
+              ),
+            ),
+
           ],
         ),
       ),

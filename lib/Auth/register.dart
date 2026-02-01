@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jopmales/View/HOmescreenView.dart';
 
 class RegisterScreenView extends StatefulWidget {
   const RegisterScreenView({super.key});
@@ -27,9 +28,6 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
 
             SizedBox(height: 80),
 
-
-
-
             Text(
               "User Name",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
@@ -37,15 +35,13 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
             SizedBox(height: 6),
             TextField(
               keyboardType: TextInputType.none,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Enter your Name',
                 prefixIcon: Icon(Icons.person),
               ),
             ),
 
             SizedBox(height: 50),
-
-
 
             Text(
               "Phone",
@@ -54,7 +50,7 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
             SizedBox(height: 6),
             TextField(
               keyboardType: TextInputType.none,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Enter your Phone Number',
                 prefixIcon: Icon(Icons.phone),
               ),
@@ -77,13 +73,16 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
             SizedBox(height: 60),
             GestureDetector(
               onTap: () {
-              //  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HOmescreenView(),));
+                //  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HOmescreenView(),));
               },
               child: Row(
                 children: [
                   Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: Colors.orangeAccent,
@@ -103,9 +102,116 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
               ),
             ),
 
+            SizedBox(height: 30),
+            Center(
+              child: Text(
+                "Or",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => HOmescreenView()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 11,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0xffFDF2E6),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/google.png',
+                      height: 26,
+                      width: 26,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(width: 12),
+                    const Text(
+                      "Sign up with Google",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => HOmescreenView()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 11,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0xffFDF2E6),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/facebook.png',
+                      height: 26,
+                      width: 26,
+                      fit: BoxFit.cover,
+                    ),
+                    const SizedBox(width: 12),
+                    const Text(
+                      "Sign up with facebook",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
 
+            SizedBox(height: 80),
 
-
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don’t have an account?",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(width: 4),
+                Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.orangeAccent,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

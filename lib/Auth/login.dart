@@ -105,12 +105,13 @@ class _LoginScrenViewState extends State<LoginScrenView> {
                     if(_formKey.currentState!.validate()){
 
                       if(nameController.text==userInfo["name"] && nameController.text==userInfo["name"] ){
+                        FlutterSecureStorage ss= FlutterSecureStorage();
+                        var data= await ss.write(key: "isLogin", value: "true");
                         Navigator.push(context, MaterialPageRoute(builder: (context) => HOmescreenView(),));
                       }
-                      else{
+                      else {
                         log("not found");
                       }
-
 
                     }
 

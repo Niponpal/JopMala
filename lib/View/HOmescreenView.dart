@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class HOmescreenView extends StatefulWidget {
   const HOmescreenView({super.key});
@@ -10,6 +13,25 @@ class HOmescreenView extends StatefulWidget {
 class _HOmescreenViewState extends State<HOmescreenView> {
   int activeCount = 0;
   int totalCount = 0;
+
+  loadCount()async{
+    FlutterSecureStorage data= FlutterSecureStorage();
+    var ac= await data.read(key: "activeCount");
+    var tc= await data.read(key: "totalCount");
+    setState(() {
+      activeCount = int.parse(ac ?? "0");
+      totalCount = int.parse(tc ?? "0");
+    });
+
+
+  }
+
+  @override
+  void initState() {
+
+    super.initState();
+    loadCount();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,15 +117,17 @@ class _HOmescreenViewState extends State<HOmescreenView> {
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   setState(() {
                     activeCount++;
-
                     if (activeCount == 109) {
                       totalCount++;
                       activeCount = 0;
                     }
                   });
+                  FlutterSecureStorage cc=FlutterSecureStorage();
+                  var ac= await cc.write(key: "activeCount", value: activeCount.toString());
+                  var tc=await cc.write(key: "totalCount", value: totalCount.toString());
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(

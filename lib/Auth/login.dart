@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jopmales/Auth/register.dart';
 import 'package:jopmales/View/HOmescreenView.dart';
@@ -108,9 +109,10 @@ class _LoginScrenViewState extends State<LoginScrenView> {
                         FlutterSecureStorage ss= FlutterSecureStorage();
                         var data= await ss.write(key: "isLogin", value: "true");
                         Navigator.push(context, MaterialPageRoute(builder: (context) => HOmescreenView(),));
+                        EasyLoading.showSuccess("Login Successful");
                       }
                       else {
-                        log("not found");
+                        EasyLoading.showError("Invalid username or password");
                       }
 
                     }

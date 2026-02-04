@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jopmales/View/HOmescreenView.dart';
 
@@ -121,13 +122,14 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
                                 "name": name.text,
                                 "password": pass.text,
                                 "phone": phone.text
+
                               };
                               FlutterSecureStorage storage= FlutterSecureStorage();
                              storage.write(key: "registerData", value: jsonEncode(data));
                               Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScrenView(),));
                             }
 
-
+                            EasyLoading.showSuccess("Registration Successful");
 
                           },
                           child: Container(

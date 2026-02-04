@@ -56,7 +56,7 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
                     return null;
                   },
                   controller: name,
-                  keyboardType: TextInputType.none,
+
                   decoration: InputDecoration(
                     hintText: 'Enter your Name',
                     prefixIcon: Icon(Icons.person),
@@ -78,7 +78,6 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
                     return null;
                   },
                   controller:  phone,
-                  keyboardType: TextInputType.none,
                   decoration: InputDecoration(
                     hintText: 'Enter your Phone Number',
                     prefixIcon: Icon(Icons.phone),
